@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return [
-        'time' => (microtime(true) - LARAVEL_START) * 1000,
+        // 'time' => (microtime(true) - LARAVEL_START) * 1000,
         'memory' => memory_get_peak_usage() / 1024 / 1024,
         'server' => $_SERVER,
         'user' => User::all(),
