@@ -15,10 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    if(!session()->has('test')){
+        session('test',rand(20,22222222));
+    }
+
     return [
         // 'time' => (microtime(true) - LARAVEL_START) * 1000,
         'memory' => memory_get_peak_usage() / 1024 / 1024,
         'server' => $_SERVER,
         'user' => User::all(),
-    ];;
+        'session' => session('test'),
+    ];
 });
